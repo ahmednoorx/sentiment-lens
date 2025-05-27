@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Web UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 500px; margin: 60px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        textarea { width: 100%; height: 100px; margin-bottom: 20px; padding: 10px; font-size: 1em; }
+        button { width: 100%; padding: 10px; background: #0078d7; color: #fff; border: none; border-radius: 4px; font-size: 1em; cursor: pointer; }
+        .result { margin-top: 20px; padding: 10px; border-radius: 4px; background: #e7f3fe; color: #333; }
+        .instructions { margin-bottom: 20px; background: #f9f9f9; padding: 10px; border-radius: 4px; color: #555; font-size: 0.98em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sentiment Analysis</h2>
+        <div class="instructions">
+            <strong>How to use:</strong><br>
+            Enter your text in the box below and click <b>Analyze Sentiment</b>.<br>
+            The result will appear below the button.<br>
+            <br>
+            <b>Example:</b> <i>I love using this product!</i>
+        </div>
+        <form method="post">
+            <textarea name="user_text" placeholder="Enter text to analyze..." required>{{ request.form.user_text or '' }}</textarea>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <strong>Sentiment:</strong> {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
