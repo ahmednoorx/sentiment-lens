@@ -1,4 +1,4 @@
-# sentiment-lens
+# Sentiment-lens
 
 This project implements a sentiment analysis tool using a pre-trained BERT model from Hugging Face Transformers. The tool classifies input text into positive, negative, or neutral sentiments and is deployed as both a REST API and a simple Web UI.
 
